@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sana Özel ❤️</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#120014,#4b002d,#ff4f81);
+    font-family:Arial,sans-serif;
+    color:white;
+    overflow:hidden;
+}
+
+.card{
+    width:90%;
+    max-width:400px;
+    padding:35px 25px;
+    text-align:center;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:25px;
+    box-shadow:0 0 40px rgba(255,50,130,.4);
+}
+
+h1{
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+p{
+    font-size:18px;
+    line-height:1.6;
+}
+
+button{
+    margin-top:20px;
+    padding:14px 28px;
+    border:0;
+    border-radius:30px;
+    background:#ff477e;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+}
+
+#surprise{
+    display:none;
+    margin-top:25px;
+    animation:fade 1s;
+}
+
+.heart{
+    position:absolute;
+    bottom:-30px;
+    animation:up 6s linear infinite;
+    opacity:.7;
+}
+
+@keyframes up{
+    from{
+        transform:translateY(0) scale(1)
+    }
+    to{
+        transform:translateY(-110vh) scale(1.5);
+        opacity:0
+    }
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:scale(.8)
+    }
+    to{
+        opacity:1;
+        transform:scale(1)
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>❤️ Sana Özel ❤️</h1>
+
+    <p>
+        Bu site sadece senin için hazırlandı...
+        Çünkü sen benim için gerçekten özelsin. 🥹❤️
+    </p>
+
+    <button onclick="surprise()">Sürprizi Aç 🎁</button>
+
+    <div id="surprise">
+        <h2>💖 Seni Çok Seviyorum 💖</h2>
+        <p>
+            İyi ki hayatımdasın.<br>
+            İyi ki varsın. ❤️
+        </p>
+    </div>
+</div>
+
+<script>
+function surprise(){
+    document.getElementById("surprise").style.display="block";
+
+    for(let i=0;i<25;i++){
+        let heart=document.createElement("div");
+        heart.className="heart";
+        heart.innerHTML="❤️";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.animationDuration=(3+Math.random()*4)+"s";
+        heart.style.fontSize=(15+Math.random()*25)+"px";
+        document.body.appendChild(heart);
+    }
+}
+</script>
+
+</body>
+</html>
