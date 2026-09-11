@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bizim Hikayemiz ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #12000a, #3b071c, #12000a);
+    color: white;
+    text-align: center;
+}
+
+/* PAROLA EKRANI */
+
+#login {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+        radial-gradient(circle at center, #5c0b2b 0%, #12000a 70%);
+    z-index: 10;
+}
+
+.login-box {
+    width: 90%;
+    max-width: 400px;
+    padding: 35px 25px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 40px rgba(255, 50, 120, 0.25);
+}
+
+.heart {
+    font-size: 60px;
+    animation: heartbeat 1.4s infinite;
+}
+
+@keyframes heartbeat {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+.login-box h1 {
+    margin: 10px 0;
+}
+
+.login-box p {
+    opacity: .8;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    text-align: center;
+    font-size: 16px;
+}
+
+button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: #ff3d7f;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ff1f69;
+}
+
+#error {
+    color: #ff719e;
+    margin-top: 12px;
+    display: none;
+}
+
+/* ANA SAYFA */
+
+#site {
+    display: none;
+    padding-bottom: 60px;
+}
+
+.hero {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background:
+        linear-gradient(rgba(20,0,10,.3), rgba(20,0,10,.8)),
+        radial-gradient(circle at center, #691438, #16000c);
+}
+
+.hero h1 {
+    font-size: clamp(35px, 9vw, 70px);
+    margin: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    opacity: .85;
+}
+
+.counter {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(10px);
+}
+
+#days {
+    font-size: 45px;
+    font-weight: bold;
+    color: #ff5c91;
+}
+
+section {
+    max-width: 900px;
+    margin: auto;
+    padding: 50px 20px;
+}
+
+section h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+/* FOTOĞRAFLAR */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+    transition: .3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.03);
+}
+
+/* ŞİİR */
+
+.poem {
+    padding: 30px;
+    border-radius: 25px;
+    background: rgba(255,255,255,.07);
+    line-height: 2;
+    font-size: 18px;
+}
+
+.poem span {
+    color: #ff6b9d;
+}
+
+/* ALT */
+
+footer {
+    opacity: .6;
+    padding: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAROLA -->
+
+<div id="login">
+
+    <div class="login-box">
+
+        <div class="heart">❤️</div>
+
+        <h1>Bizim Özel Alanımız</h1>
+
+        <p>
+            Burası sadece ikimizin hikâyesi...
+        </p>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Parolayı gir..."
+        >
+
+        <button onclick="enterSite()">
+            Hikâyemize Gir ❤️
+        </button>
+
+        <div id="error">
+            Parola yanlış... ❤️
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ANA SİTE -->
+
+<div id="site">
+
+    <div class="hero">
+
+        <p>Seninle başlayan en güzel hikâyemiz...</p>
+
+        <h1>Seni Seviyorum ❤️</h1>
+
+        <div class="counter">
+
+            <div>
+                <span id="days">0</span>
+                <br>
+                gündür beraberiz
+            </div>
+
+            <p id="time"></p>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOTOĞRAFLAR -->
+
+    <section>
+
+        <h2>Bizden Kareler 📸</h2>
+
+        <div class="gallery">
+
+            <img src="11902.png" alt="Bizim fotoğrafımız">
+
+            <img src="11651.jpg" alt="Bizim fotoğrafımız">
+
+        </div>
+
+    </section>
+
+
+    <!-- ŞİİR -->
+
+    <section>
+
+        <h2>Sana Özel ❤️</h2>
+
+        <div class="poem">
+
+            <p>
+                Bir gün değil, her gün seni seçiyorum,<br>
+                Kalabalığın içinde gözlerini arıyorum.<br>
+                Zaman geçiyor, yollar değişiyor,<br>
+                Ama sana olan sevgim hiç eksilmiyor.
+            </p>
+
+            <p>
+                Bazen bir sözün yetiyor gülümsememe,<br>
+                Bazen sadece varlığın yetiyor iyi olmama.<br>
+                Dünyada milyonlarca insan olsa da,<br>
+                Benim kalbim yine seni buluyor.
+            </p>
+
+            <p>
+                Eğer yeniden başlasaydı hayat,<br>
+                Aynı yerde, aynı anda,<br>
+                Yine seni tanımak isterdim.<br>
+                Çünkü benim en güzel tesadüfüm,<br>
+                <span>sen oldun. ❤️</span>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        Sonsuza kadar bizim hikâyemiz... ❤️
+    </footer>
+
+</div>
+
+
+<!-- MÜZİK -->
+
+<audio id="music" loop>
+    <source src="muraba.mp3" type="audio/mpeg">
+</audio>
+
+
+<script>
+
+/* PAROLA */
+
+function enterSite() {
+
+    const password =
+        document.getElementById("password").value;
+
+    if (password === "31temuz") {
+
+        document.getElementById("login").style.display = "none";
+
+        document.getElementById("site").style.display = "block";
+
+        /* Kullanıcı butona bastığı için tarayıcı müziğe izin verir */
+        const music = document.getElementById("music");
+
+        music.play().catch(() => {});
+
+        updateCounter();
+
+    } else {
+
+        document.getElementById("error").style.display = "block";
+
+    }
+}
+
+
+/* SEVGİLİLİK SÜRESİ */
+
+/*
+   BURADAKİ TARİHİ DEĞİŞTİREBİLİRSİN.
+
+   Örnek:
+   31 Temmuz 2025
+*/
+
+const startDate = new Date("2025-07-31T00:00:00");
+
+
+function updateCounter() {
+
+    const now = new Date();
+
+    const difference = now - startDate;
+
+    const totalSeconds =
+        Math.floor(difference / 1000);
+
+    const days =
+        Math.floor(totalSeconds / 86400);
+
+    const hours =
+        Math.floor((totalSeconds % 86400) / 3600);
+
+    const minutes =
+        Math.floor((totalSeconds % 3600) / 60);
+
+    const seconds =
+        totalSeconds % 60;
+
+
+    document.getElementById("days").textContent =
+        days;
+
+    document.getElementById("time").textContent =
+        `${hours} saat ${minutes} dakika ${seconds} saniyedir birlikteyiz ❤️`;
+}
+
+
+/* Sayaç her saniye güncellensin */
+
+setInterval(updateCounter, 1000);
+
+</script>
+
+</body>
+</html>
